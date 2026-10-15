@@ -22,9 +22,15 @@ Boot & Core Runtime
 Userland
 - Core Utilities with a twist (uutils/coreutils):  non-GNU binary compatible core utilities written in Rust.  The intent is to squeeze out more optimization and security without sacrificing compatibility by moving to busybox or other options.
 
-3. Package Management (still under consideration)
+3. Package Management (leaning Nix-based but up for debate)
 
 The closest model would be Gentoo's emerge which allows for source-based and binary package installation.  I'd like to take this a step further though.
 
 - Binary by Default: musl compiled packages for a fast, uniform initial installation and available simplicity.
-- Persistent Source Overrides: The ability to install one, some or all of your packages from source.  The package manager maintains a 
+- Persistent Source Overrides: The ability to install one, some or all of your packages from source.  The package manager maintains a the choice until the user changes it.  Every updater respects this choice.
+- Hardware-Targeted Optimization:  Why compile?  Speed.  Packages are automatically compiled using -march=native. However, should that fail, compiler seamlessly scales back or even reverts to binary.
+
+4.  System Advantages
+- Lowest binary footprint possible: Smaller, streamlined, optimized with musl.
+- Feature Trimming:  Install what you want, not what you don't
+- GNU Compatibility without the restrictive Copy left license.
