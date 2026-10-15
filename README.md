@@ -24,3 +24,7 @@ Userland
 
 3. Package Management (still under consideration)
 
+The closest model would be Gentoo's emerge which allows for source-based and binary package installation.  I'd like to take this a step further though.
+
+- Binary by Default: musl compiled packages for a fast, uniform initial installation and available simplicity.
+- Persistent Source Overrides: The ability to install one, some or all of your packages from source.  The package manager maintains a 
